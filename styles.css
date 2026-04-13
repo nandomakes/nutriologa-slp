@@ -233,7 +233,7 @@ p { color: var(--muted); max-width: 58ch; }
 }
 
 /* TESTIMONIALS */
-.testimonials { padding: 40px 24px 80px; background: var(--sage); }
+.testimonials { padding: 40px 24px 80px; background: var(--cream); }
 .testimonials__head {
   max-width: 720px; margin: 0 auto 48px; text-align: center;
 }
