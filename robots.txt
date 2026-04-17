@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /images/source/
+
+Sitemap: https://daniela-balderas-nutricion.mx/sitemap.xml
