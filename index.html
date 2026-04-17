@@ -61,13 +61,17 @@
   <header class="nav">
     <div class="nav__inner">
       <a href="index.html" class="logo">Daniela<span>·</span>Balderas</a>
-      <nav class="nav__links" aria-label="Principal">
+      <nav class="nav__links" id="navLinks" aria-label="Principal">
         <a href="sobre-mi.html">Sobre mí</a>
         <a href="servicios.html">Servicios</a>
         <a href="blog.html">Blog</a>
         <a href="contacto.html">Contacto</a>
+        <a href="contacto.html" class="btn btn--pill nav__cta-mobile">Agendar consulta</a>
       </nav>
-      <a href="contacto.html" class="btn btn--pill">Agendar consulta</a>
+      <a href="contacto.html" class="btn btn--pill nav__cta-desktop">Agendar consulta</a>
+      <button class="nav__toggle" type="button" aria-label="Abrir menú" aria-controls="navLinks" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); document.body.classList.toggle('nav-open');">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
