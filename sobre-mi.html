@@ -29,6 +29,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Gradient override — inline so it beats any stale CSS cache */
+    body.page-sobre-mi .page-hero--sage,
+    .page-hero--sage {
+      background: linear-gradient(to bottom,
+        #B6C4BD 0%,
+        #B6C4BD 45%,
+        #E4E0DE 100%) !important;
+      border-bottom: 0 !important;
+    }
+    body.page-sobre-mi .about { border-top: 0 !important; }
+    body.page-sobre-mi .nav { background: #B6C4BD !important; }
+    /* CTA final — cream fades down to sage, stops before footer (solid sage) */
+    body.page-sobre-mi .cta-final {
+      background: linear-gradient(to bottom,
+        #F4F3F2 0%,
+        #CBD6CF 60%,
+        #B6C4BD 100%) !important;
+      border-top: 0 !important;
+      border-bottom: 1px solid #201E1F !important;
+    }
+    body.page-sobre-mi .services { border-bottom: 0 !important; }
+    /* Footer solid — never inherits gradient */
+    body.page-sobre-mi .footer { background: #B6C4BD !important; }
+  </style>
+
+  <template id="__bundler_thumbnail" data-bg-color="#B6C4BD">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#B6C4BD"/>
+      <text x="600" y="420" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-weight="300" font-size="180" fill="#201E1F">D·B</text>
+      <text x="600" y="540" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="28" letter-spacing="12" fill="#201E1F">SOBRE MÍ</text>
+    </svg>
+  </template>
 
   <script type="application/ld+json">
   {
@@ -42,7 +75,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-sobre-mi">
 
   <header class="nav">
     <div class="nav__inner">
@@ -66,7 +99,7 @@
     <section class="page-hero page-hero--sage">
       <div class="page-hero__inner">
         <span class="eyebrow">Sobre mí</span>
-        <h1>Nutrición clínica<em>con nombre propio.</em></h1>
+        <h1><em>Nutrición clínica</em><em>con nombre propio.</em></h1>
         <p>
           Soy Daniela Balderas, nutrióloga potosina apasionada por la comida real y
           las relaciones sanas con el plato. Llevo más de ocho años acompañando a
@@ -84,7 +117,7 @@
         </div>
         <div class="about__content">
           <span class="eyebrow">Mi historia</span>
-          <h2>Construí mi práctica <em>con una mirada distinta.</em></h2>
+          <h2><em>Construí mi práctica</em> <em>con una mirada distinta.</em></h2>
           <p>
             Soy <strong>Lic. Daniela Balderas</strong>, egresada de la Facultad
             de Enfermería y Nutrición de la Universidad Autónoma de San Luis
@@ -117,7 +150,7 @@
     <section class="services">
       <div class="container">
         <div class="services__head">
-          <h2>Tres cosas en las que <em>siempre creeré.</em></h2>
+          <h2><em>Tres cosas en las que</em> <em>siempre creeré.</em></h2>
           <p>Los tres principios que guían cada consulta en mi práctica.</p>
         </div>
         <div class="services__grid">
@@ -151,7 +184,7 @@
 
     <section class="cta-final">
       <div class="container">
-        <h2>¿Lista para sentir<em>paz con tu alimentación?</em></h2>
+        <h2><em>¿Lista para sentir</em><em>paz con tu alimentación?</em></h2>
         <a href="contacto.html" class="btn btn--primary">Agendar primera consulta</a>
       </div>
     </section>

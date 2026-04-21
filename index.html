@@ -31,6 +31,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Gradient hero — fades into next section (stats-band = cream) */
+    body.page-index .hero {
+      background: linear-gradient(to bottom,
+        #B6C4BD 0%,
+        #B6C4BD 45%,
+        #F4F3F2 100%) !important;
+      border-bottom: 0 !important;
+    }
+    body.page-index .stats-band { border-top: 0 !important; }
+    body.page-index .nav { background: #B6C4BD !important; }
+    /* CTA final — cream fades down to sage, stops before footer (solid sage) */
+    body.page-index .cta-final {
+      background: linear-gradient(to bottom,
+        #F4F3F2 0%,
+        #CBD6CF 60%,
+        #B6C4BD 100%) !important;
+      border-top: 0 !important;
+      border-bottom: 1px solid #201E1F !important;
+    }
+    body.page-index .contact { border-bottom: 0 !important; }
+    /* Footer solid — never inherits gradient */
+    body.page-index .footer { background: #B6C4BD !important; }
+    /* Kill the decorative "nutrir" pseudo-element once and for all */
+    body.page-index .about__media::after,
+    body.page-index .about__media::before {
+      content: none !important;
+      display: none !important;
+      visibility: hidden !important;
+    }
+  </style>
 
   <script type="application/ld+json">
   {
@@ -56,7 +87,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-index">
 
   <header class="nav">
     <div class="nav__inner">
@@ -82,7 +113,7 @@
       <div class="hero__grid">
         <div class="hero__content">
           <span class="eyebrow">Nutrición clínica · San Luis Potosí</span>
-          <h1>Transforma tu cuerpo<em>y tu mente</em><span class="h1-tail">desde adentro.</span></h1>
+          <h1>Transforma tu <em>cuerpo y mente</em><span class="h1-tail">desde adentro.</span></h1>
           <p class="lead">
             Acompañamiento profesional en nutrición para potosinos que buscan resultados
             reales y sostenibles. Planes personalizados, consulta presencial en
@@ -129,7 +160,7 @@
         </div>
         <div class="about__content">
           <span class="eyebrow">Sobre mí</span>
-          <h2>Nutrición humana,<em>con raíces potosinas.</em></h2>
+          <h2><em>Nutrición humana,</em><em>con raíces potosinas.</em></h2>
           <p>
             Soy <strong>Daniela Balderas</strong>, Licenciada en Nutrición egresada de la
             Universidad Autónoma de San Luis Potosí (UASLP), con posgrado en
@@ -156,7 +187,7 @@
       <div class="container">
         <div class="services__head">
           <span class="eyebrow">Servicios</span>
-          <h2>Planes pensados <em>para tu vida.</em></h2>
+          <h2><em>Planes pensados</em> <em>para tu vida.</em></h2>
           <p>
             Cada programa incluye valoración antropométrica, plan alimenticio
             personalizado y seguimiento continuo por WhatsApp.
@@ -231,7 +262,7 @@
       <div class="container">
         <div class="testimonials__head">
           <span class="eyebrow">Testimonios</span>
-          <h2>Más de 1,000 pacientes<em>atendidos en San Luis Potosí.</em></h2>
+          <h2><em>Más de 1,000 pacientes</em><em>atendidos en San Luis Potosí.</em></h2>
           <p>Historias reales de personas que transformaron su salud conmigo en San Luis Potosí.</p>
         </div>
 
@@ -310,7 +341,7 @@
       <div class="container contact__grid">
         <div class="contact__intro">
           <span class="eyebrow">Contacto</span>
-          <h2>Agenda tu primera<em>consulta en San Luis Potosí.</em></h2>
+          <h2><em>Agenda tu primera</em><em>consulta</em></h2>
           <p>
             Respondo cada mensaje personalmente en menos de 24 horas.
             Primera consulta incluye valoración completa y plan inicial.
@@ -361,7 +392,7 @@
     <!-- CTA FINAL -->
     <section class="cta-final">
       <div class="container">
-        <h2>Recupera tu salud,<em>sin dietas imposibles.</em></h2>
+        <h2><em>Recupera tu salud,</em><em>sin dietas imposibles.</em></h2>
         <a href="contacto.html" class="btn btn--primary">Agendar primera consulta</a>
       </div>
     </section>
@@ -437,5 +468,174 @@
       els.forEach(el => io.observe(el));
     })();
   </script>
+
+  <!-- ===================== TWEAKS PANEL ===================== -->
+  <style>
+    #tweaks-panel {
+      position: fixed; right: 20px; bottom: 20px; z-index: 9999;
+      background: #fff; color: #1a1a1a;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 2px 6px rgba(0,0,0,0.08);
+      padding: 14px 14px 12px;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 13px;
+      width: 260px;
+      display: none;
+    }
+    #tweaks-panel.is-open { display: block; }
+    #tweaks-panel h3 {
+      margin: 0 0 4px; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.02em; color: #1a1a1a;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    #tweaks-panel .tp-hint {
+      font-size: 11px; color: #666; margin: 0 0 10px; line-height: 1.4;
+    }
+    #tweaks-panel .tp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    #tweaks-panel button.tp-btn {
+      appearance: none; border: 1px solid rgba(0,0,0,0.15);
+      background: #fafafa; color: #1a1a1a;
+      padding: 8px 10px; border-radius: 8px; cursor: pointer;
+      font-size: 12px; font-family: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    #tweaks-panel button.tp-btn:hover { background: #f0f0f0; border-color: rgba(0,0,0,0.3); }
+    #tweaks-panel button.tp-btn:active { background: #e5e5e5; }
+    #tweaks-panel .tp-btn.tp-italic { font-style: italic; }
+    #tweaks-panel .tp-btn.tp-bold { font-weight: 700; }
+    #tweaks-panel .tp-btn.tp-cursive { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 15px; }
+    #tweaks-panel .tp-btn.tp-mixed { font-style: italic; font-weight: 700; font-family: "Cormorant Garamond", serif; font-size: 14px; }
+    #tweaks-panel .tp-btn.tp-reset { grid-column: 1 / -1; color: #8a2a2a; border-color: rgba(138,42,42,0.25); }
+    #tweaks-panel .tp-selection {
+      margin-top: 10px; padding: 8px 10px;
+      background: #f7f5f1; border-radius: 8px;
+      font-size: 11px; color: #555;
+      max-height: 48px; overflow: hidden;
+      border: 1px dashed rgba(0,0,0,0.1);
+    }
+    #tweaks-panel .tp-close {
+      appearance: none; border: 0; background: transparent;
+      font-size: 16px; line-height: 1; cursor: pointer; color: #888; padding: 0;
+    }
+    #tweaks-panel .tp-close:hover { color: #1a1a1a; }
+    .tp-applied { /* wrapper class for applied edits */ }
+  </style>
+
+  <div id="tweaks-panel" role="dialog" aria-label="Tweaks">
+    <h3>Tweaks <button class="tp-close" type="button" aria-label="Cerrar">×</button></h3>
+    <p class="tp-hint">Selecciona texto en la página y aplica un estilo:</p>
+    <div class="tp-row">
+      <button class="tp-btn tp-italic" data-style="italic" type="button">Itálica</button>
+      <button class="tp-btn tp-bold" data-style="bold" type="button">Negrita</button>
+      <button class="tp-btn tp-cursive" data-style="cursive" type="button">Cursiva</button>
+      <button class="tp-btn tp-mixed" data-style="mixed" type="button">Mezclado</button>
+      <button class="tp-btn tp-reset" data-style="reset" type="button">Quitar estilo</button>
+    </div>
+    <div class="tp-selection" id="tp-selection-preview">Sin selección</div>
+  </div>
+
+  <script>
+  (function(){
+    var panel = document.getElementById('tweaks-panel');
+    var preview = document.getElementById('tp-selection-preview');
+    var lastRange = null;
+
+    // Edit-mode protocol: register listener FIRST, then announce availability
+    window.addEventListener('message', function(e){
+      var d = e.data || {};
+      if (d.type === '__activate_edit_mode') panel.classList.add('is-open');
+      if (d.type === '__deactivate_edit_mode') panel.classList.remove('is-open');
+    });
+    try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(_){}
+
+    // Track last user selection (outside the panel itself)
+    document.addEventListener('selectionchange', function(){
+      var sel = document.getSelection();
+      if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
+      var r = sel.getRangeAt(0);
+      // Ignore selections inside the tweaks panel
+      var node = r.commonAncestorContainer;
+      var el = node.nodeType === 1 ? node : node.parentElement;
+      if (el && el.closest && el.closest('#tweaks-panel')) return;
+      lastRange = r.cloneRange();
+      var txt = sel.toString().trim();
+      preview.textContent = txt ? '“' + (txt.length > 60 ? txt.slice(0,60)+'…' : txt) + '”' : 'Sin selección';
+    });
+
+    function applyStyleToRange(range, cssText){
+      if (!range) return;
+      try {
+        var span = document.createElement('span');
+        span.className = 'tp-applied';
+        span.setAttribute('style', cssText);
+        // If the range crosses element boundaries, surroundContents may fail.
+        // Fallback: extract → wrap → reinsert.
+        try {
+          range.surroundContents(span);
+        } catch(err){
+          var frag = range.extractContents();
+          span.appendChild(frag);
+          range.insertNode(span);
+        }
+      } catch(e){ console.warn('Tweaks: apply failed', e); }
+    }
+
+    function clearStyleInRange(range){
+      if (!range) return;
+      var container = range.commonAncestorContainer;
+      var scope = container.nodeType === 1 ? container : container.parentElement;
+      if (!scope) return;
+      var applied = scope.querySelectorAll('.tp-applied');
+      applied.forEach(function(el){
+        if (range.intersectsNode(el)) {
+          // Unwrap: replace element with its children
+          var parent = el.parentNode;
+          while (el.firstChild) parent.insertBefore(el.firstChild, el);
+          parent.removeChild(el);
+        }
+      });
+    }
+
+    var STYLES = {
+      italic:  'font-style: italic;',
+      bold:    'font-weight: 700;',
+      cursive: 'font-family: "Cormorant Garamond", serif; font-style: italic;',
+      mixed:   'font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 700;'
+    };
+
+    panel.addEventListener('click', function(e){
+      var btn = e.target.closest('.tp-btn');
+      if (btn) {
+        var kind = btn.getAttribute('data-style');
+        if (!lastRange) { preview.textContent = 'Selecciona texto primero'; return; }
+        if (kind === 'reset') {
+          clearStyleInRange(lastRange);
+        } else if (STYLES[kind]) {
+          applyStyleToRange(lastRange, STYLES[kind]);
+        }
+        // Clear selection after apply
+        try { window.getSelection().removeAllRanges(); } catch(_){}
+        lastRange = null;
+        preview.textContent = 'Sin selección';
+        return;
+      }
+      if (e.target.closest('.tp-close')) {
+        panel.classList.remove('is-open');
+      }
+    });
+
+    // Also allow opening via a small keyboard shortcut when running standalone (Shift+T)
+    document.addEventListener('keydown', function(e){
+      if (e.shiftKey && (e.key === 'T' || e.key === 't') && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        var active = document.activeElement;
+        if (active && /INPUT|TEXTAREA/.test(active.tagName)) return;
+        panel.classList.toggle('is-open');
+      }
+    });
+  })();
+  </script>
+
 </body>
 </html>

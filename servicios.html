@@ -29,6 +29,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Gradient hero — teal fades into .services (cream) */
+    body.page-servicios .page-hero--teal {
+      background: linear-gradient(to bottom,
+        #A1C2C4 0%,
+        #A1C2C4 45%,
+        #F4F3F2 100%) !important;
+      border-bottom: 0 !important;
+    }
+    body.page-servicios .services { border-top: 0 !important; }
+    body.page-servicios .nav { background: #A1C2C4 !important; }
+    /* CTA final — warm-gray fades down to teal, stops before footer (solid teal) */
+    body.page-servicios .cta-final {
+      background: linear-gradient(to bottom,
+        #E4E0DE 0%,
+        #C3D5D6 55%,
+        #A1C2C4 100%) !important;
+      border-top: 0 !important;
+      border-bottom: 1px solid #201E1F !important;
+    }
+    body.page-servicios .about { border-bottom: 0 !important; }
+    /* Footer solid teal to match hero */
+    body.page-servicios .footer { background: #A1C2C4 !important; }
+  </style>
 
   <script type="application/ld+json">
   {
@@ -44,7 +68,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-servicios">
 
   <header class="nav">
     <div class="nav__inner">
@@ -68,7 +92,7 @@
     <section class="page-hero page-hero--teal">
       <div class="page-hero__inner">
         <span class="eyebrow">Servicios</span>
-        <h1>Planes de nutrición<em>hechos a tu medida.</em></h1>
+        <h1><em>Planes de nutrición</em><em>hechos a tu medida.</em></h1>
         <p>
           Seis caminos pensados para la vida real en San Luis Potosí.
           Consulta presencial en Tequisquiapan o videoconsulta para todo el estado.
@@ -79,7 +103,7 @@
     <section class="services">
       <div class="container">
         <div class="services__head">
-          <h2>Elige <em>tu plan.</em></h2>
+          <h2><em>Elige</em> <em>tu plan.</em></h2>
           <p>
             Cada programa incluye valoración antropométrica, plan alimenticio
             personalizado y seguimiento continuo por WhatsApp.
@@ -156,7 +180,7 @@
       <div class="container">
         <div class="services__head">
           <span class="eyebrow">El proceso</span>
-          <h2>De tu primera llamada <em>a tus nuevos hábitos.</em></h2>
+          <h2><em>De tu primera llamada</em> <em>a tus nuevos hábitos.</em></h2>
         </div>
         <div class="services__grid services__grid--four">
           <article class="service">
@@ -185,7 +209,7 @@
 
     <section class="cta-final">
       <div class="container">
-        <h2>Tu salud, sin pelear<em>con la comida.</em></h2>
+        <h2><em>Tu salud, sin pelear</em><em>con la comida.</em></h2>
         <a href="contacto.html" class="btn btn--primary">Agendar primera consulta</a>
       </div>
     </section>

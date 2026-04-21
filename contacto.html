@@ -31,6 +31,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Gradient hero — teal fades into .contact (cream) */
+    body.page-contacto .page-hero--sage {
+      background: linear-gradient(to bottom,
+        #A1C2C4 0%,
+        #A1C2C4 45%,
+        #F4F3F2 100%) !important;
+      border-bottom: 0 !important;
+    }
+    body.page-contacto .contact { border-top: 0 !important; }
+    body.page-contacto .nav { background: #A1C2C4 !important; }
+    /* Footer solid teal to match hero */
+    body.page-contacto .footer { background: #A1C2C4 !important; }
+  </style>
 
   <script type="application/ld+json">
   {
@@ -48,7 +62,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-contacto">
 
   <header class="nav">
     <div class="nav__inner">
@@ -72,7 +86,7 @@
     <section class="page-hero page-hero--sage">
       <div class="page-hero__inner">
         <span class="eyebrow">Contacto</span>
-        <h1>Agenda tu primera<em>consulta nutricional.</em></h1>
+        <h1><em>Agenda tu primera</em><em>consulta nutricional.</em></h1>
         <p>
           Ya sea para agendar tu primera consulta o para resolver una duda
           puntual, este es el lugar. Leo cada mensaje personalmente y
@@ -85,7 +99,7 @@
       <div class="container contact__grid">
         <div class="contact__intro">
           <span class="eyebrow">Los detalles</span>
-          <h2>Una línea tranquila<em>al consultorio.</em></h2>
+          <h2><em>Una línea tranquila</em><em>al consultorio.</em></h2>
           <p>
             Consultas presenciales en Col. Tequisquiapan (a un costado de Plaza
             Tangamanga) o videoconsulta para pacientes en todo SLP.

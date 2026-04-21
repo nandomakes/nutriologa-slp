@@ -29,6 +29,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Gradient hero — sage fades into .blog-featured (cream) */
+    body.page-blog .page-hero--warm {
+      background: linear-gradient(to bottom,
+        #B6C4BD 0%,
+        #B6C4BD 45%,
+        #F4F3F2 100%) !important;
+      border-bottom: 0 !important;
+    }
+    body.page-blog .blog-featured { border-top: 0 !important; }
+    /* Nav matches hero color */
+    body.page-blog .nav { background: #B6C4BD !important; }
+    /* CTA final — cream fades down to sage-soft, stops before footer (solid sage) */
+    body.page-blog .cta-final {
+      background: linear-gradient(to bottom,
+        #F4F3F2 0%,
+        #CBD6CF 60%,
+        #B6C4BD 100%) !important;
+      border-top: 0 !important;
+      border-bottom: 1px solid #201E1F !important;
+    }
+    body.page-blog .blog-grid-section { border-bottom: 0 !important; }
+    /* Footer solid — never inherits gradient */
+    body.page-blog .footer { background: #B6C4BD !important; }
+  </style>
 
   <script type="application/ld+json">
   {
@@ -41,7 +66,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-blog">
 
   <header class="nav">
     <div class="nav__inner">
@@ -65,7 +90,7 @@
     <section class="page-hero page-hero--warm">
       <div class="page-hero__inner">
         <span class="eyebrow">El cuaderno</span>
-        <h1>Recetas y consejos<em>sobre comida real.</em></h1>
+        <h1><em>Recetas y consejos</em><em>sobre comida real.</em></h1>
         <p>
           Notas quincenales sobre nutrición potosina, recetas de temporada,
           mitos desmentidos y pequeños cambios que transforman tu relación
@@ -171,7 +196,7 @@
 
     <section class="cta-final">
       <div class="container">
-        <h2>¿Quieres consejos<em>en tu correo?</em></h2>
+        <h2><em>¿Quieres consejos</em><em>en tu correo?</em></h2>
         <a href="contacto.html" class="btn btn--primary">Suscribirme al boletín</a>
       </div>
     </section>

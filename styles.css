@@ -34,6 +34,7 @@
 /* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; }
 body {
   font-family: var(--font-sans);
   background: var(--cream);
@@ -390,17 +391,8 @@ p { color: var(--ink); max-width: 62ch; }
   display: block;
 }
 .about__media::after {
-  content: 'nutrir';
-  position: absolute;
-  bottom: -24px;
-  left: -24px;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(72px, 10vw, 120px);
-  line-height: 1;
-  color: var(--sage);
-  pointer-events: none;
+  content: none !important;
+  display: none !important;
 }
 .about__content h2 {
   margin-bottom: 20px;
@@ -1075,7 +1067,6 @@ p { color: var(--ink); max-width: 62ch; }
     grid-template-columns: 1fr;
   }
   .form { grid-template-columns: 1fr; padding: 28px; }
-  .about__media::after { bottom: -12px; left: -8px; }
 
   /* Nav: hamburger aparece */
   .nav__toggle { display: inline-flex; }
@@ -1111,6 +1102,28 @@ p { color: var(--ink); max-width: 62ch; }
 @media (max-width: 640px) {
   :root { --max: 100%; }
   body { font-size: 14px; }
+
+  /* Prevent shadow bleed causing horizontal overflow */
+  .hero__photo,
+  .about__photo,
+  .blog-featured__img,
+  .service,
+  .testimonial,
+  .form { max-width: 100%; }
+
+  /* Stats: 3 columns stay visible, compact */
+  .stats-band__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .stats-band__list li { padding-left: 12px; }
+  .stats-band__list span { font-size: 11px; line-height: 1.4; }
+
+  /* Larger tap targets for nav links */
+  .nav__links a { padding: 6px 0; }
+
+  /* Dev tweaks panel — out of the way on mobile */
+  #tweaks-panel { display: none !important; }
 
   .container,
   .container--narrow,
@@ -1155,7 +1168,6 @@ p { color: var(--ink); max-width: 62ch; }
   .about { padding: 72px 0; }
   .about__grid { gap: 32px; }
   .about__photo { box-shadow: 6px 6px 0 0 var(--ink); }
-  .about__media::after { display: none; }
 
   /* Services */
   .services { padding: 72px 0; }
@@ -1242,6 +1254,17 @@ p { color: var(--ink); max-width: 62ch; }
 /* Section wrapping the blog grid on blog.html gets the divider */
 .blog-grid-section {
   border-bottom: var(--stroke) solid var(--ink);
+}
+
+/* ==========================================================================
+   Difuminado únicamente entre el page-hero de sobre-mi y la sección "Mi historia"
+   ========================================================================== */
+body.page-sobre-mi .page-hero--sage {
+  background: linear-gradient(to bottom, var(--sage) 0%, var(--sage) 45%, var(--warm-gray) 100%) !important;
+  border-bottom: 0 !important;
+}
+body.page-sobre-mi .about {
+  border-top: 0;
 }
 
 .service__link {
